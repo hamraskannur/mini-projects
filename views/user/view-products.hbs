@@ -1,0 +1,19 @@
+<section class="bg-secondary pt-5">
+
+    <div class="container bg-dark">
+        <div class="row ">
+            <h2 style="color: white">Most popular movies</h2>
+            {{#each products}}
+            <div class="card mx-1 bg-dark" style="width: 15rem; height: 25rem; ">
+                <img src="/movie-img/{{this._id}}.jpg" class="card-img-top " style=" height: 12rem;" alt="...">
+                <div class="card-body ">
+                    <h5 class="card-title m-0" style="color: white">{{this.Name}}</h5>
+                    <p class="card-text m-0 " style="color:  white">{{this.Description}}</p>
+                    <p class="card-text m-0 " style="color:  white">||wach now</p>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+
+</section>

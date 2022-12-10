@@ -1,0 +1,42 @@
+<div class="login">
+  <form class="login-container" method="post" action="/login">
+    <h1 class="h1">login page</h1>
+    <div class="input-container">
+      <label class="form-label text-light" for="form2Example1">Email address</label>
+      <p><input type="email" id="userEmail" name="Email" /></p>
+      <label class="form-label text-light" for="form2Example2">Password</label>
+      <p><input type="password" id="userPassword" name="Password" /></p>
+      {{#if loginErr}}
+      <div class="text-center">
+        <small class="text-danger">{{loginErr}}</small>
+      </div>
+      {{/if}}
+      <p><input class="first" id="btn-submit" type="submit" value="Log in" /></p>
+    </div>
+  </form>
+</div>
+<script>
+  $(document).ready(function () {
+
+    $('#btn-submit').click(function () {
+      $(".error").hide();
+      var hasError = false;
+      var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+      var emailaddressVal = $("#userEmail").val();
+      var PasswordVal = $("#userPassword").val();
+      if (emailaddressVal == '') {
+        $("#userEmail").after('<span class="error text-danger">Please enter your email address.</span>');
+        hasError = true;
+      }
+      else if (!emailReg.test(emailaddressVal)) {
+        $("#userEmail").after('<span class="error text-danger" >Enter a valid email address.</span>');
+        hasError = true;
+      }
+      if (PasswordVal == '') {
+        $("#userPassword").after('<span class="error text-danger">Please enter your password.</span>');
+        hasError = true;
+      }
+      if (hasError == true) { return false; }
+    });
+  });
+</script>

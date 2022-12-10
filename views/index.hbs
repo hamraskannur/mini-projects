@@ -1,0 +1,18 @@
+
+    <section >
+       <div class="container-fluid bg-dark">
+            <div class="row">
+                <h2 style="color: white">Most popular malayalam movies</h2>
+                {{#each products}}
+                <div class="card mx-1 bg-dark" style="width: 15rem; height: 21rem; ">
+                    <img src="{{this.img}}" class="card-img-top " style="width: 15rem; height: 12rem;" alt="...">
+                    <div class="card-body ">
+                        <h5 class="card-title m-0" style="color: white">{{this.name}}</h5>
+                        <p class="card-text m-0 " style="color:  white">{{this.description}}</p>
+                         <p class="card-text m-0 " style="color:  white">||wach now</p>
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+            </div>
+    </section>

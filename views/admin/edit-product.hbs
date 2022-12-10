@@ -1,0 +1,50 @@
+<div class="container-fluid bg-dark">
+    <form action="/admin/edit-product/{{product._id}}" method="post" enctype="multipart/form-data" class="row g-3  bg-dark">
+        <div class="text-center" style="color: white;">
+            <h3>EDIT PRODUCT</h3>
+            <div class="col-auto mt-5">
+                <label for="">Name</label>
+                <input type="type" name="Name" class="form-control bg-secondary text-light" value="{{product.Name}}">
+            </div>
+            <div class="col-auto mt-2">
+                <label for="">description</label>
+                <input type="type" name="Description" class="form-control bg-secondary text-light" value="{{product.Description}}">
+            </div>
+            <div class="col-auto mt-2 ">
+                <label for="">select movie Image</label>
+                <img src="/movie-img/{{product._id}}.jpg" alt="" style="float: left; width: 200px; height: auto;" id="imgView">
+                <input id="Image" type="file" name="Image" class="form-control bg-secondary text-light" onchange="viewImage(event)">
+            </div>
+            <div class="col-auto mt-3">
+                <button id="btn-submit" type="submit" class="btn btn-primary mb-3">ADD VIDEO</button>
+            </div>
+        </div>
+    </form>
+</div>
+<script>
+    function viewImage(event){
+        document.getElementById('imgView').src=URL.createObjectURL(event.target.files[0])
+    }
+</script>
+
+
+
+
+
+
+<script>
+  $(document).ready(function () {
+
+    $('#btn-submit').click(function () {
+      $(".error").hide();
+      var hasError = false;
+      var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+      var Image = $("#Image").val();
+      if (Image == '') {
+        $("#Image").after('<span class="error text-danger">Please put Image.</span>');
+        hasError = true;
+      }
+      if (hasError == true) { return false; }
+    });
+  });
+</script>
